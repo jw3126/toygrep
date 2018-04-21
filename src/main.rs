@@ -5,13 +5,14 @@ use std::io::{BufReader};
 use std::fs::{File};
 use std::path::{Path};
 
-fn doit(pattern:&str, filepath:&Path) {
-    let file = File::open(filepath).expect("Cannot open filepath");
+fn search_file(pattern:&str, filepath:&Path) {
+    let file = File::open(filepath)
+        .expect(&format!("Cannot open {:?}", filepath));
     let buf = BufReader::new(file);
     for (i,line) in buf.lines().enumerate() {
         let s = line.unwrap();
         if s.contains(pattern) {
-            println!("{} {}",i,s)
+            println!("{} {}",i+1,s)
         }
     };
 }
@@ -35,5 +36,5 @@ fn main() {
     let pattern = matches.value_of("PATTERN").unwrap();
     let filename = matches.value_of("FILE").unwrap();
     let filepath = Path::new(filename);
-    doit(pattern, filepath);
+    search_file(pattern, filepath);
 }
