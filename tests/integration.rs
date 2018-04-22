@@ -59,5 +59,10 @@ mod integration {
             .with_args(&["four", spath])
             .stdout().is("4 four four four")
             .unwrap();
+
+        assert_cli::Assert::main_binary()
+            .with_args(&["five", spath, "-i"])
+            .stdout().is("5 FiVe")
+            .unwrap();
     }
 }

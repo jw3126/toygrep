@@ -32,12 +32,12 @@ impl SearchTask {
         for (i,line) in buf.lines().enumerate() {
             let s = line.unwrap();
             let s_normalized = if case_sensitive {
-                s
+                s.clone()
             } else {
-                s.to_lowercase()
+                s.clone().to_lowercase()
             };
             if s_normalized.contains(pat) {
-                println!("{} {}",i+1,s_normalized)
+                println!("{} {}",i+1,s)
             }
         };
     }
