@@ -1,4 +1,5 @@
 # toygrep
+ +![](https://travis-ci.org/jw3126/toygrep.svg?branch=master)
 
 ## Installation
 

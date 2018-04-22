@@ -15,4 +15,3 @@ cache: cargo
 script:
   - cargo build --verbose --all
   - cargo test --verbose --all
-  - cargo install --verbose --all

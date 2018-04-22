@@ -1,3 +1,4 @@
+#[macro_use]
 extern crate clap;
 use std::io::prelude::*;
 use clap::{Arg, ArgMatches};
@@ -55,8 +56,8 @@ fn parse_search_task(matches:ArgMatches) -> SearchTask {
 
 fn create_app() -> clap::App<'static, 'static> {
     clap::App::new("toygrep")
-            .version("0.1")
-            .author("Jan Weidner <jw3126@gmail.com>")
+            .version(crate_version!())
+            .author(crate_authors!())
             .about("Simple grep clone.")
             .arg(Arg::with_name("PATTERN")
                  .help("Pattern that should be searched for")
